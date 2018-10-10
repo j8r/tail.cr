@@ -1,9 +1,13 @@
 name: tail
-version: 0.1.0
+version: 0.2.0
 
 authors:
   - Julien Reichardt <mi@jrei.ch>
 
 description: Tailing library for Crystal - get and/or follow the end of a file/IO
+
+dependencies:
+  inotify:
+    github: petoem/inotify.cr
 
 license: ISC

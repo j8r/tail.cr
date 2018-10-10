@@ -1,9 +1,12 @@
+require "inotify"
+
 module Tail
   # Follows the new appended bytes of an `IO`
   def self.follow(io : IO, delay = 0.1, &block)
     loop do
-      content = io.gets_to_end
-      yield content if !content.empty?
+      if !(content = io.gets_to_end).empty?
+        yield content
+      end
       sleep delay
     end
   end
@@ -19,9 +22,9 @@ module Tail
     end
 
     # Get the last n `lines`.
-    # `line_size` is used to extract the end of the file to calculate the trailing lines
+    # `line_size` is used to extract the end of the file, and then calculate the trailing lines
     def last_lines(lines = 10, line_size = 1024) : Array(String)
-      # Assuming each line is sizing at least line_size
+      # Assuming each line is sizing at most line_size
       if (size = @file.size) > 0
         offset = lines * line_size
         @file.seek 0 - (size < offset ? size : offset), IO::Seek::End
@@ -36,8 +39,7 @@ module Tail
       end
     end
 
-    # Follow the end of a file
-    def follow(lines = 0, line_size = 1024, delay = 0.1, &block)
+    private def yield_last_lines(lines, line_size, &block : String -> _)
       if lines > 0
         if end_lines = last_lines(lines, line_size)
           yield end_lines.join '\n'
@@ -45,7 +47,29 @@ module Tail
       else
         @file.skip_to_end
       end
-      Tail.follow(@file, delay) { |str| yield str }
     end
+
+    # Follow the end of a file
+    def follow(lines = 0, line_size = 1024, delay = 0.1, &block : String -> _)
+      yield_last_lines lines, line_size, &block
+      loop do
+        if !(content = @file.gets_to_end).empty?
+          yield content
+        end
+        sleep 0.1
+      end
+    end
+
+    {% if flag?(:linux) %}
+    # Use Inotify to yield newly added bytes from the file
+    def watch(lines = 0, line_size = 1024, &block : String -> _)
+      yield_last_lines lines, line_size, &block
+      Inotify::Watcher.new @file.path do |event|
+        if !(content = @file.gets_to_end).empty?
+          block.call content
+        end
+      end
+    end
+    {% end %}
   end
 end

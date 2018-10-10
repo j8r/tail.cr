@@ -33,11 +33,15 @@ Follows the new appended bytes of an `IO`
 
 Get the last n `lines`.
 
-`line_size` is used to extract the end of the file to calculate the trailing lines
+`line_size` is used to extract the end of the file, and then calculate the trailing lines
 
-`#follow(lines = 0, line_size = 1024, delay = 0.1, &block)`
+`#follow(lines = 0, line_size = 1024, delay = 0.1, &block : String -> _)`
 
 Follow the end of a file
+
+`#watch(lines = 0, line_size = 1024, &block : String -> _)`
+
+(Linux Only) Use Inotify to yield newly added bytes from the file
 
 ## Examples
 
