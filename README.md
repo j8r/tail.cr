@@ -2,6 +2,8 @@
 
 Tailing library for Crystal - get and/or follow the end of a file/IO
 
+[Inotify.cr](https://github.com/petoem/inotify.cr) is used in Linux
+
 ## Installation
 
 Add the dependency to your `shard.yml`:
