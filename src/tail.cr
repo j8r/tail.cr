@@ -40,12 +40,10 @@ module Tail
     end
 
     private def yield_last_lines(lines, line_size, &block : String -> _)
-      if lines > 0
-        if end_lines = last_lines(lines, line_size)
-          yield end_lines.join '\n'
-        end
-      else
+      if lines <= 0
         @file.skip_to_end
+      elsif end_lines = last_lines(lines, line_size)
+        yield end_lines.join '\n'
       end
     end
 
@@ -56,7 +54,7 @@ module Tail
         if !(content = @file.gets_to_end).empty?
           yield content
         end
-        sleep 0.1
+        sleep delay
       end
     end
 
@@ -64,7 +62,7 @@ module Tail
     # Use Inotify to yield newly added bytes from the file
     def watch(lines = 0, line_size = 1024, &block : String -> _)
       yield_last_lines lines, line_size, &block
-      Inotify::Watcher.new @file.path do |event|
+      Inotify.watch(@file.path) do
         if !(content = @file.gets_to_end).empty?
           block.call content
         end
