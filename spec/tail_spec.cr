@@ -46,7 +46,7 @@ describe Tail do
       output_channel.receive.should eq data
     end
 
-    it "returns last lines" do
+    describe "returns last lines" do
       File.write temp_file, "test\ndata"
       it "inferior to the file's size" do
         Tail::File.new(temp_file).last_lines(lines: 10).should eq ["test", "data"]

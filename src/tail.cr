@@ -70,4 +70,8 @@ module Tail
     end
     {% end %}
   end
+
+  def finalize
+    @file.close
+  end
 end
