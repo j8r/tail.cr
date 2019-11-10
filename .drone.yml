@@ -1,0 +1,43 @@
+kind: pipeline
+name: default
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: format
+  image: jrei/crystal-alpine
+  commands:
+  - crystal tool format --check
+
+- name: test
+  volumes:
+  image: jrei/crystal-alpine
+  commands:
+  - shards install
+  - crystal spec -D allow_root --warnings all --error-on-warnings
+
+- name: build docs
+  image: jrei/crystal-alpine
+  volumes:
+  - name: docs
+    path: /docs
+  commands:
+  - crystal docs -o /docs
+
+- name: publish docs
+  image: jrei/gh-pages-ci
+  volumes:
+  - name: docs
+    path: /docs
+  environment:
+    GIT_USER: Drone CI
+    GIT_COMMIT_MESSAGE: Update docs
+    SITE_TEMP_DIR: /docs
+    SSH_PRIVATE_KEY:
+      from_secret: ssh_private_key
+
+volumes:
+- name: docs
+  temp: {}
