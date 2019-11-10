@@ -1,4 +1,4 @@
-# Tail
+# Tail.cr
 
 [![Build Status](https://cloud.drone.io/api/badges/j8r/tail.cr/status.svg)](https://cloud.drone.io/j8r/tail.cr)
 [![ISC](https://img.shields.io/badge/License-ISC-blue.svg?style=flat-square)](https://en.wikipedia.org/wiki/ISC_license)
@@ -14,7 +14,7 @@ Add the dependency to your `shard.yml`:
 ```yaml
 dependencies:
   exec:
-    github: j8r/tail
+    github: j8r/tail.cr
 ```
 
 ## Documentation
