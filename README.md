@@ -35,4 +35,4 @@ Tail::File.open "file", &.last_lines
 
 ## License                                                                                                 
 
-Copyright (c) 2018-2019 Julien Reichardt - ISC License
+Copyright (c) 2018-2020 Julien Reichardt - ISC License
