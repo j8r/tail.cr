@@ -9,6 +9,6 @@ description: Tailing library for Crystal - get and/or follow the end of a file/I
 dependencies:
   inotify:
     github: petoem/inotify.cr
-    version: ~> 1.0.0
+    branch: master
 
 license: ISC
