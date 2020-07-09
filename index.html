@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.34.0">
+<meta name="crystal_docs.project_version" content="HEAD">
+<meta name="crystal_docs.project_name" content="tail">
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+
+  <meta id="repository-name" content="tail">
+  <title>tail HEAD</title>
+  <script type="text/javascript">
+  CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          tail
+        </a>
+      </h1>
+
+      <span class="project-version">
+        HEAD
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent " data-id="tail/Tail" data-name="tail">
+      <a href="Tail.html">Tail</a>
+      
+        <ul>
+  
+  <li class=" " data-id="tail/Tail/File" data-name="tail::file">
+      <a href="Tail/File.html">File</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1><a id="tail.cr" class="anchor" href="#tail.cr">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Tail.cr</h1>
+
+<p><a href="https://cloud.drone.io/j8r/tail.cr" target="_blank"><img src="https://cloud.drone.io/api/badges/j8r/tail.cr/status.svg" alt="Build Status"/></a>
+<a href="https://en.wikipedia.org/wiki/ISC_license" target="_blank"><img src="https://img.shields.io/badge/License-ISC-blue.svg?style=flat-square" alt="ISC"/></a></p>
+
+<p>Tailing library for Crystal - get and/or follow the end of a file/IO</p>
+
+<p><a href="https://github.com/petoem/inotify.cr" target="_blank">Inotify.cr</a> library is used to watch files.</p>
+
+<h2><a id="installation" class="anchor" href="#installation">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Installation</h2>
+
+<p>Add the dependency to your <code>shard.yml</code>:</p>
+
+<pre><code class="language-yaml">dependencies:
+  exec:
+    github: j8r/tail.cr</code></pre>
+
+<h2><a id="documentation" class="anchor" href="#documentation">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Documentation</h2>
+
+<p>https://j8r.github.io/tail.cr</p>
+
+<h2><a id="examples" class="anchor" href="#examples">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Examples</h2>
+
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;tail&quot;</span>
+
+<span class="t">Tail</span><span class="t">::</span><span class="t">File</span>.open <span class="s">&quot;file&quot;</span>, <span class="o">&amp;</span>.follow <span class="k">do</span> <span class="o">|</span>str<span class="o">|</span>
+  print str
+<span class="k">end</span>
+
+<span class="t">Tail</span><span class="t">::</span><span class="t">File</span>.open <span class="s">&quot;file&quot;</span>, <span class="o">&amp;</span>.last_lines</code></pre>
+
+<h2><a id="license" class="anchor" href="#license">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>License                                                                                                 </h2>
+
+<p>Copyright (c) 2018-2020 Julien Reichardt - ISC License</p>
+</div>
+</body>
+</html>

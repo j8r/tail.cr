@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.34.0">
+<meta name="crystal_docs.project_version" content="HEAD">
+<meta name="crystal_docs.project_name" content="tail">
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+
+  <meta id="repository-name" content="tail">
+  <title>Tail::File - tail HEAD</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          tail
+        </a>
+      </h1>
+
+      <span class="project-version">
+        HEAD
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="tail/Tail" data-name="tail">
+      <a href="../Tail.html">Tail</a>
+      
+        <ul>
+  
+  <li class=" current" data-id="tail/Tail/File" data-name="tail::file">
+      <a href="../Tail/File.html">File</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">struct</span> Tail::File
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Tail/File.html">Tail::File</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/j8r/tail.cr/blob/a5d9993819d15c8e1375ff28bd23d1d5c37a4af0/src/tail.cr#L14" target="_blank">
+        tail.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new(file:::File)-class-method" class="signature"><strong>.new</strong>(file : ::File)</a>
+        
+          <div class="summary"><p>Tail a file IO.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#open(file:Path%7CString,&:File-%3E)-class-method" class="signature"><strong>.open</strong>(file : Path | String, & : File -> )</a>
+        
+          <div class="summary"><p>Open a file to tail into it.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#follow(lines=0,line_size=1024,delay=0.1,&block:String-%3E_)-instance-method" class="signature"><strong>#follow</strong>(lines = <span class="n">0</span>, line_size = <span class="n">1024</span>, delay = <span class="n">0.1</span>, &block : String -> _)</a>
+        
+          <div class="summary"><p>Follows the end of a file.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#last_lines(lines=10,line_size=1024):Array(String)-instance-method" class="signature"><strong>#last_lines</strong>(lines = <span class="n">10</span>, line_size = <span class="n">1024</span>) : Array(String)</a>
+        
+          <div class="summary"><p>Gets the last n <code>lines</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#watch(lines=0,line_size=1024,&block:String-%3E_)-instance-method" class="signature"><strong>#watch</strong>(lines = <span class="n">0</span>, line_size = <span class="n">1024</span>, &block : String -> _)</a>
+        
+          <div class="summary"><p>Watchs for newly added bytes to the file by using inotify.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(file:::File)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(file : ::File)
+
+        <a class="method-permalink" href="#new(file:::File)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Tail a file IO.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/tail.cr/blob/a5d9993819d15c8e1375ff28bd23d1d5c37a4af0/src/tail.cr#L16" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="open(file:Path|String,&:File->)-class-method">
+      <div class="signature">
+        
+        def self.<strong>open</strong>(file : Path | String, & : <a href="../Tail/File.html">File</a> -> )
+
+        <a class="method-permalink" href="#open(file:Path%7CString,&:File-%3E)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Open a file to tail into it.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/tail.cr/blob/a5d9993819d15c8e1375ff28bd23d1d5c37a4af0/src/tail.cr#L20" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="follow(lines=0,line_size=1024,delay=0.1,&block:String->_)-instance-method">
+      <div class="signature">
+        
+        def <strong>follow</strong>(lines = <span class="n">0</span>, line_size = <span class="n">1024</span>, delay = <span class="n">0.1</span>, &block : String -> _)
+
+        <a class="method-permalink" href="#follow(lines=0,line_size=1024,delay=0.1,&block:String-%3E_)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Follows the end of a file.</p>
+
+<pre><code><span class="t">Tail</span><span class="t">::</span><span class="t">File</span>.open <span class="s">&quot;file&quot;</span>, <span class="o">&amp;</span>.follow <span class="k">do</span> <span class="o">|</span>str<span class="o">|</span>
+  print str
+<span class="k">end</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/tail.cr/blob/a5d9993819d15c8e1375ff28bd23d1d5c37a4af0/src/tail.cr#L63" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="last_lines(lines=10,line_size=1024):Array(String)-instance-method">
+      <div class="signature">
+        
+        def <strong>last_lines</strong>(lines = <span class="n">10</span>, line_size = <span class="n">1024</span>) : Array(String)
+
+        <a class="method-permalink" href="#last_lines(lines=10,line_size=1024):Array(String)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Gets the last n <code>lines</code>.
+<code>line_size</code> is used to extract the end of the file, and then calculate the trailing lines.</p>
+
+<pre><code><span class="t">Tail</span><span class="t">::</span><span class="t">File</span>.open <span class="s">&quot;file&quot;</span>, <span class="o">&amp;</span>.last_lines</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/tail.cr/blob/a5d9993819d15c8e1375ff28bd23d1d5c37a4af0/src/tail.cr#L32" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="watch(lines=0,line_size=1024,&block:String->_)-instance-method">
+      <div class="signature">
+        
+        def <strong>watch</strong>(lines = <span class="n">0</span>, line_size = <span class="n">1024</span>, &block : String -> _)
+
+        <a class="method-permalink" href="#watch(lines=0,line_size=1024,&block:String-%3E_)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Watchs for newly added bytes to the file by using inotify.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/tail.cr/blob/a5d9993819d15c8e1375ff28bd23d1d5c37a4af0/src/tail.cr#L69" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
