@@ -7,19 +7,19 @@ platform:
 
 steps:
 - name: format
-  image: jrei/crystal-alpine
+  image: crystallang/crystal:latest-alpine
   commands:
   - crystal tool format --check
 
 - name: test
   volumes:
-  image: jrei/crystal-alpine
+  image: crystallang/crystal:latest-alpine
   commands:
   - shards install
-  - crystal spec -D allow_root --warnings all --error-on-warnings
+  - crystal spec --warnings all --error-on-warnings
 
 - name: build docs
-  image: jrei/crystal-alpine
+  image: crystallang/crystal:latest-alpine
   volumes:
   - name: docs
     path: /docs
